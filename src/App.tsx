@@ -1,16 +1,16 @@
 import './App.css';
 import {QueryClient, useQuery} from "@tanstack/react-query";
-import {googleQuery} from "./GoogleQuery.ts";
+import {query} from "./Query.ts";
 
 export async function loader(queryClient: QueryClient) {
     return await queryClient.ensureQueryData(
-        googleQuery()
+        query()
     );
 }
 
 function App() {
     const {data, isLoading} = useQuery({
-        ...googleQuery()
+        ...query()
     });
 
     if (isLoading) {
